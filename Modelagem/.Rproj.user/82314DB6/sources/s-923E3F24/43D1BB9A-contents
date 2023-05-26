@@ -1,0 +1,12 @@
+if(!require("readr")) install.packages("readr")
+if(!require("ggplot2")) install.packages("ggplot2")
+setwd("C:/Users/Heverton/OneDrive/Mestrado UFCA/Disciplinas/00_Projeto_de_pesquisa/Modelagem")
+dados_ano = read.csv2('data/dados_ano.csv')
+dados_ano$ano <- as.factor(dados_ano$ano)
+ggplot(data = dados_ano,aes(x = ano,y = area)) +
+  geom_errorbar(stat = "boxplot", width = 0.2) +
+  geom_boxplot(width = 0.6, fill = "grey90",
+               outlier.shape = 1, outlier.size = 2) +
+  labs(y = "Área alagada", x = "Ano") +
+  theme_classic()
+
